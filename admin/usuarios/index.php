@@ -51,13 +51,13 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
                 <td style="text-align: center">
                 <div class="btn-group" role="group" aria-label="Basic example">
                   <a href="show.php?id=<?=$id_usuario;?>" type="button" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i></a>
-                  <a href="edit.php?id=<?=$id_usuario;?>" type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
-                  <form action="<?=APP_URL;?>/app/controllers/roles/delete.php" onclick="preguntar(event)" method="post" id="miFormulario<?=$id_usuario;?>">
-                    <input type="text" name="id_rol" value="<?=$id_usuario;?>" hidden>
+                  <a href="edit.php?id=<?=$id_usuario;?>" type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square" style ="color: white"></i></a>
+                  <form action="<?=APP_URL;?>/app/controllers/usuarios/delete.php" onclick="preguntar<?=$id_usuario;?>(event)" method="post" id="miFormulario<?=$id_usuario;?>">
+                    <input type="text" name="id_usuario" value="<?=$id_usuario;?>" hidden>
                   <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 3px 3px 0px"><i class="bi bi-trash3"></i></button>
                   </form>
                   <script>
-                    function preguntar (event){
+                    function preguntar<?=$id_usuario;?> (event){
                       event.preventDefault();
                       Swal.fire({
                         title: 'Eliminar registro',

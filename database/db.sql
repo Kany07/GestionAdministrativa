@@ -17,7 +17,7 @@ CREATE TABLE usuarios (
     email VARCHAR(255) NOT NULL UNIQUE, 
     password TEXT NOT NULL, 
 
-    fyh_creacion DATETIME NULL, 
+    fyh_creacion DATETIME DATETIME DEFAULT CURRENT_TIMESTAMP, 
     fyh_actualizacion DATETIME NULL, 
     estado VARCHAR(11),
 

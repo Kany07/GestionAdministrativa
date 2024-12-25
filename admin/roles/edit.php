@@ -35,7 +35,7 @@ include ('../../app/controllers/roles/datos_del_rol.php');
               <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                           <button type="submit" class="btn btn-warning">Actualizar</button>
+                           <button type="submit" class="btn btn-warning" style ="color: white">Actualizar</button>
                            <a href="<?= APP_URL;?>/admin/roles" class="btn btn-secondary">Cancelar</a>
                       </div>
                 </div>

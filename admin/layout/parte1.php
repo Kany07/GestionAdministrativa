@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION['sesion_email'])) {
   // echo "El usuario paso por el login";
   $email_sesion=$_SESSION['sesion_email'];
-  $query_sesion = $pdo->prepare("SELECT * FROM `usuarios` WHERE email = '$email_sesion' AND estado = '1'");
+  $query_sesion = $pdo->prepare("SELECT * FROM usuarios WHERE email = '$email_sesion' AND estado = '1'");
   $query_sesion->execute();
 
   $datos_sesion_usuarios = $query_sesion->fetchAll(PDO::FETCH_ASSOC);
