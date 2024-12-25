@@ -1,4 +1,4 @@
-<?php 
+<?php  
 include ('../../app/config.php');
 include ('../../admin/layout/parte1.php');
 ?>
@@ -13,7 +13,7 @@ include ('../../admin/layout/parte1.php');
         </div>
         <div class="row">
           <div class = "col-md-6">
-            <div class="card card-outline card-primary">
+            <div class="card card-outline card-dark">
               <div class="card-header">
                 <h3 class="card-title">Llene el campo</h3>
               </div>

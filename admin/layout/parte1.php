@@ -37,6 +37,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src = "https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!--iconos de bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Datatables -->
+    <link rel="stylesheet" href="<?php echo APP_URL;?>/public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?php echo APP_URL;?>/public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?php echo APP_URL;?>/public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -125,7 +129,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
           <li class="nav-item menu">
             <a href="#" class="nav-link active">
-            <i class="nav-icon fas"><i class="bi bi-bar-chart-steps"></i></i>
+            <i class="nav-icon fas"><i class="bi bi-bookmarks"></i></i>
               <p>
                 Roles
                 <i class="right fas fa-angle-left"></i>
@@ -134,42 +138,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="<?= APP_URL;?>/admin/roles" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
+                <i class="far fa-circle nav-icon"></i>
                   <p>Listado de roles</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Inactive Page</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
-          </li>
-
           <li class="nav-item menu">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas"><i class="bi bi-person-circle"></i></i>
               <p>
-                Starter Pages
+                Usuarios
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="<?= APP_URL;?>/admin/usuarios" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Active Page</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
+                  <p>Listado de usuarios</p>
                 </a>
               </li>
             </ul>
-          </li>
 
           <li class="nav-item">
             <a href="<?= APP_URL;?>/login/logout.php" class="nav-link" style="background-color: #b4cb23; color: black">

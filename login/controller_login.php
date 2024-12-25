@@ -18,8 +18,7 @@ $password_tabla = $usuario['password'];
 $contador = $contador + 1; 
 }
 
-if (($contador > 0) //&& (password_verify($password, $password_tabla))
-){ 
+if (($contador > 0) && (password_verify($password, $password_tabla))){ 
     echo "Los datos son correctos"; 
     session_start();  //iniciamos la sesión  //establecemos variables de sesión
         $_SESSION['mensaje'] = "Bienvenido al sistema"; 

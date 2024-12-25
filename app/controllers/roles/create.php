@@ -1,5 +1,5 @@
 <?php
-
+ 
 include ('../../../app/config.php');
 
 $nombre_rol = $_POST['nombre_rol'];

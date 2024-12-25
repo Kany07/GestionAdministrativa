@@ -10,4 +10,4 @@ if (isset($_SESSION['sesion_email'])) {
 } else {
     header('Location: ' . APP_URL . '/login');
     exit;
-}
+} 
