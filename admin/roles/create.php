@@ -39,6 +39,7 @@ include ('../../admin/layout/parte1.php');
                </form>
             </div>
           </div>
+         </div>
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->

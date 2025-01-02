@@ -21,11 +21,13 @@ include ('../../app/controllers/roles/listado_de_roles.php');
               <div class="card-body">
                <form action="<?= APP_URL;?>/app/controllers/usuarios/create.php" method="post">
                <div class="row">
+               <div class="col-md-12">
+               <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
                         <label for="">Nombre del rol</label>
                         <div class="form-inline">
-                            <select name="rol_id" id="" class="form-control" style="width: 291px">
+                            <select name="rol_id" id="" class="form-control" style="width: 280px">
                                 <?php 
                         foreach ($roles as $role) { ?>
                             <option value="<?=$role['id_rol'];?>"><?=$role['nombre_rol'];?></option>
@@ -40,11 +42,10 @@ include ('../../app/controllers/roles/listado_de_roles.php');
 
                 <div class="col-md-4">
                       <div class="form-group">
-                        <label for="">Nombre del usuario</label>
-                        <input type="text" name="nombres" class="form-control" required>
+                        <label for="">Nombres</label>
+                        <input type="text" name="nombres" class="form-control">
                       </div>
                 </div>
-
                 <div class="col-md-4">
                       <div class="form-group">
                         <label for="">Correo electronico</label>
@@ -53,19 +54,21 @@ include ('../../app/controllers/roles/listado_de_roles.php');
                 </div>
             </div>
             <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                       <div class="form-group">
                         <label for="">Contraseña</label>
                         <input type="password" name="password" class="form-control" required>
                       </div>
                  </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                       <div class="form-group">
                         <label for="">Repetir contraseña</label>
                         <input type="password" name="password_repet" class="form-control" required>
                       </div>
                 </div>
             </div>
+               </div>
+               </div>
               <hr>
               <div class="row">
                     <div class="col-md-12">
@@ -76,6 +79,7 @@ include ('../../app/controllers/roles/listado_de_roles.php');
                 </div>
               </div>
                </form>
+             </div>
             </div>
           </div>
         </div>

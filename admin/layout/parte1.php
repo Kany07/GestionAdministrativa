@@ -41,6 +41,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?php echo APP_URL;?>/public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="<?php echo APP_URL;?>/public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="<?php echo APP_URL;?>/public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+<!-- Boto flotante -->
+<style>
+        #boton-flotante {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent; /* Fondo transparente */
+            color:rgb(0, 0, 0); /* Color del texto */
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 1000;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #boton-flotante:hover {
+            background-color:rgb(0, 0, 0);
+            color: white;
+        }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -53,7 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?php echo APP_URL;?>/admin" class="nav-link"><?= APP_NAME;?></a>
+      <a href="<?php echo APP_URL;?>/admin" class="nav-link"><?= APP_NAME;?></a>
       </li>
     </ul>
 
@@ -127,6 +153,44 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
+               
+          <li class="nav-item menu">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas"><i class="bi bi-gear-wide-connected"></i></i>
+              <p>
+                Configuraciones
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= APP_URL;?>/admin/configuraciones" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Configurar</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item menu">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas"><i class="bi bi-stack"></i></i>
+              <p>
+                Niveles
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= APP_URL;?>/admin/niveles" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de niveles</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item menu">
             <a href="#" class="nav-link active">
             <i class="nav-icon fas"><i class="bi bi-bookmarks"></i></i>
@@ -142,13 +206,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Listado de roles</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
+               <!-- <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Inactive Page</p>
-                </a>
-              </li> -->
+                </a> 
+              </li>  -->
             </ul>
+           </li>
+
           <li class="nav-item menu">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas"><i class="bi bi-person-circle"></i></i>
@@ -165,6 +231,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
             </ul>
+          </li>
+
+          <li class="nav-item menu">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas"><i class="bi bi-person-lines-fill"></i></i>
+              <p>
+                Asistencia
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= APP_URL;?>/admin/asistencias" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de asistencias</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
 
           <li class="nav-item">
             <a href="<?= APP_URL;?>/login/logout.php" class="nav-link" style="background-color: #b4cb23; color: black">

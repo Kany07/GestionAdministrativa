@@ -2,7 +2,7 @@
 include ('../app/config.php');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,6 +56,8 @@ include ('../app/config.php');
           <button class="btn btn-primary btn-block" type="submit" name= "btningresar">Ingresar</button>
         </div>
       </form>
+      <p class="mb-0">
+      <button type="button" class="btn btn-danger btn-sm btn-block" onclick="window.location.href='http://localhost/SGA/qr-code-attendance-system/index.php'">Registrar asistencia</button></p>
       <?php
       session_start();
       if (isset($_SESSION['mensaje'])) {
@@ -88,3 +90,8 @@ include ('../app/config.php');
 <script src="<?php echo APP_URL;?>/public/dist/js/adminlte.min.js"></script>
 </body>
 </html>
+
+
+<!-- <div class="view">         
+<div class="fas fa-eye-slash verPassword" onclick="vista()" id="verPassword" aria-hidden="true"></div>
+</div> -->

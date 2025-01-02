@@ -4,7 +4,7 @@ if (isset($_SESSION['mensaje']) && (isset($_SESSION['icono']))){
     $icono = $_SESSION['icono'];
   ?>
   <script>
-    Swal.fire({
+    Swal.fire({ 
       position: "top-end",
       icon: "<?php echo $icono; ?>",
       title: "<?php echo $mensaje; ?>",

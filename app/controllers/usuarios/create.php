@@ -43,4 +43,3 @@ VALUES (:nombres, :rol_id, :email, :password, :fyh_creacion, :estado)');
     ?><script>window.history.back();</script><?php
 }
 
-

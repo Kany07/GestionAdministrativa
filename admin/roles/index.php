@@ -57,8 +57,8 @@ include ('../../app/controllers/roles/listado_de_roles.php');
                         icon: 'question',
                         showDenyButton: true,
                         confirmButtonText: 'Eliminar',
-                        confirmButtonColor: '#a5161d',
-                        denyButtonColor: '#270a0a',
+                        confirmButtonColor: '#df0000',
+                        denyButtonColor: '#808080',
                         denyButtonText: 'Cancelar',
                       }) .then((result) => {
                         if (result.isConfirmed) {
@@ -96,7 +96,7 @@ include ('../../layout/mensajes.php');
 <script>
   $(function () {
     $("#example1").DataTable({
-      "pageLength": 5,
+      "pageLength": 10,
       "language": {
         "emptyTable": "No hay información",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ roles",

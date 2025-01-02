@@ -11,13 +11,13 @@ include ('../../app/controllers/roles/datos_del_rol.php');
     <div class="content">
       <div class="container">
         <div class="row">
-        <h1>Editar el rol: <?= $nombre_rol;?></h1>
+        <h1>Modificar el rol: <?= $nombre_rol;?></h1>
         </div>
         <div class="row">
           <div class = "col-md-6">
             <div class="card card-outline card-warning">
               <div class="card-header">
-                <h3 class="card-title">Datos registrados</h3>
+                <h3 class="card-title">Llene el campo</h3>
               </div>
               <form action="<?=APP_URL;?>/app/controllers/roles/update.php" method="post">
               <div class="card-body">
@@ -41,7 +41,7 @@ include ('../../app/controllers/roles/datos_del_rol.php');
                 </div>
               </div>
               </form>
-               
+              </div>
             </div>
           </div>
         </div>

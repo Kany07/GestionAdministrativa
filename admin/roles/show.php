@@ -25,7 +25,7 @@ include ('../../app/controllers/roles/datos_del_rol.php');
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="">Nombre del rol</label>
-                        <p><?= $nombre_rol;?></p>
+                        <p class="form-control"><i class="bi bi-person-fill-add"></i>  <?= $nombre_rol;?></p>
                 
                       </div>
                 </div>
@@ -38,7 +38,7 @@ include ('../../app/controllers/roles/datos_del_rol.php');
                       </div>
                 </div>
               </div>
-               
+            </div>
             </div>
           </div>
         </div>

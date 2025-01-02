@@ -27,10 +27,9 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
           <thead>
             <tr>
               <th style="text-align: center">Nro</th>
-              <th style="text-align: center">Usuarios</th>
+              <th style="text-align: center">Nombres</th>
               <th style="text-align: center">Rol id</th>
               <th style="text-align: center">Email</th>
-              <th style="text-align: center">Fecha de creación</th>
               <th style="text-align: center">Estado</th>
               <th style="text-align: center">Acciones</th>
             </tr>
@@ -43,11 +42,10 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
               $contador_usuarios = $contador_usuarios + 1; ?>
               <tr>
                 <td style="text-align: center"><?=$contador_usuarios;?></td>
-                <td><?=$usuario['nombres'];?></td>
-                <td><?=$usuario['nombre_rol'];?></td>
-                <td><?=$usuario['email'];?></td>
-                <td><?=$usuario['fyh_creacion'];?></td>
-                <td><?=$usuario['estado'];?></td>
+                <td style="text-align: center"><?=$usuario['nombres'];?></td>
+                <td style="text-align: center"><?=$usuario['nombre_rol'];?></td>
+                <td style="text-align: center"><?=$usuario['email'];?></td>
+                <td style="text-align: center"><?=$usuario['estado'];?></td>
                 <td style="text-align: center">
                 <div class="btn-group" role="group" aria-label="Basic example">
                   <a href="show.php?id=<?=$id_usuario;?>" type="button" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i></a>
@@ -65,8 +63,8 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
                         icon: 'question',
                         showDenyButton: true,
                         confirmButtonText: 'Eliminar',
-                        confirmButtonColor: '#a5161d',
-                        denyButtonColor: '#270a0a',
+                        confirmButtonColor: '#df0000',
+                        denyButtonColor: '#808080',
                         denyButtonText: 'Cancelar',
                       }) .then((result) => {
                         if (result.isConfirmed) {
@@ -104,7 +102,7 @@ include ('../../layout/mensajes.php');
 <script>
   $(function () {
     $("#example1").DataTable({
-      "pageLength": 5,
+      "pageLength": 10,
       "language": {
         "emptyTable": "No hay información",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ usuarios",
