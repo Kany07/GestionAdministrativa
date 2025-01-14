@@ -80,3 +80,143 @@ CREATE TABLE niveles (
 )ENGINE=InnoDB; 
 INSERT INTO niveles(gestion_id, nivel, turno, fyh_creacion, estado)
     VALUES ('1', 'Inicial', 'Mañana', '2024-12-30 18:26:00', '1');
+
+    CREATE TABLE seccion_A ( 
+    id_seccion INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    nivel_id INT(11) NOT NULL, 
+    nombres VARCHAR(255) NOT NULL, 
+    seccion VARCHAR(255) NOT NULL, 
+    c_estudiantil VARCHAR(255) NOT NULL, 
+    f_nacimiento VARCHAR(255) NOT NULL, 
+    lugar VARCHAR(255) NOT NULL, 
+    edad VARCHAR(255) NOT NULL, 
+    sexo VARCHAR(255) NOT NULL, 
+    direccion VARCHAR(255) NOT NULL, 
+    n_representante VARCHAR(255) NOT NULL, 
+    c_representante VARCHAR(255) NOT NULL, 
+    t_representante VARCHAR(255) NOT NULL, 
+
+    fyh_creacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    fyh_actualizacion DATETIME NULL, 
+    estado VARCHAR(11),
+
+    FOREIGN KEY (nivel_id) REFERENCES niveles(id_nivel) on delete no action on update cascade
+)ENGINE=InnoDB; 
+
+    CREATE TABLE seccion_B ( 
+    id_seccion INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    nivel_id INT(11) NOT NULL, 
+    nombres VARCHAR(255) NOT NULL, 
+    seccion VARCHAR(255) NOT NULL, 
+    c_estudiantil VARCHAR(255) NOT NULL, 
+    f_nacimiento VARCHAR(255) NOT NULL, 
+    lugar VARCHAR(255) NOT NULL, 
+    edad VARCHAR(255) NOT NULL, 
+    sexo VARCHAR(255) NOT NULL, 
+    nivel VARCHAR(255) NOT NULL, 
+    direccion VARCHAR(255) NOT NULL, 
+    n_representante VARCHAR(255) NOT NULL, 
+    c_representante VARCHAR(255) NOT NULL, 
+    t_representante VARCHAR(255) NOT NULL, 
+
+    fyh_creacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    fyh_actualizacion DATETIME NULL, 
+    estado VARCHAR(11),
+
+    FOREIGN KEY (nivel_id) REFERENCES niveles(id_nivel) on delete no action on update cascade
+)ENGINE=InnoDB; 
+
+    CREATE TABLE seccion_C ( 
+    id_seccion INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    nivel_id INT(11) NOT NULL, 
+    nombres VARCHAR(255) NOT NULL, 
+    seccion VARCHAR(255) NOT NULL, 
+    c_estudiantil VARCHAR(255) NOT NULL, 
+    f_nacimiento VARCHAR(255) NOT NULL, 
+    lugar VARCHAR(255) NOT NULL, 
+    edad VARCHAR(255) NOT NULL, 
+    sexo VARCHAR(255) NOT NULL, 
+    nivel VARCHAR(255) NOT NULL, 
+    direccion VARCHAR(255) NOT NULL, 
+    n_representante VARCHAR(255) NOT NULL, 
+    c_representante VARCHAR(255) NOT NULL, 
+    t_representante VARCHAR(255) NOT NULL, 
+
+    fyh_creacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    fyh_actualizacion DATETIME NULL, 
+    estado VARCHAR(11),
+
+    FOREIGN KEY (nivel_id) REFERENCES niveles(id_nivel) on delete no action on update cascade
+)ENGINE=InnoDB; 
+
+
+
+CREATE TABLE administrativos (
+  id_empleado_a int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  usuario_id int(11) NOT NULL,
+  nombres varchar(45) NOT NULL,
+  ci varchar(45) NOT NULL,
+  telefono varchar(45) NOT NULL,
+  f_nacimiento varchar(45) NOT NULL,
+  funcion varchar(45) NOT NULL,
+  cargo_nominal VARCHAR(255) NOT NULL,
+  cod_cargo varchar(45) NOT NULL,
+  cod_dependencia varchar(45) NOT NULL,
+  plantel varchar(255) NOT NULL,
+  horas_trabajadas time DEFAULT NULL,
+  estatus text NOT NULL,
+  f_ingreso varchar(45) NOT NULL,
+  f_ingreso_plantel varchar(45) NOT NULL,
+  anos_sevicio varchar(45) NOT NULL,
+  
+   fyh_creacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
+   fyh_actualizacion DATETIME NULL, 
+   estado VARCHAR(11),
+
+   FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario) on delete no action on update cascade
+   
+) ENGINE=InnoDB;
+
+
+CREATE TABLE cargos ( 
+    id_cargo INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    cargo_nominal VARCHAR(255) NOT NULL UNIQUE, 
+
+    fyh_creacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    fyh_actualizacion DATETIME NULL, 
+    estado VARCHAR(11) 
+    )ENGINE=InnoDB;
+
+ALTER TABLE administrativos
+ADD CONSTRAINT fk_administrativos_cargos
+FOREIGN KEY (cargo_nominal) REFERENCES cargos(cargo_nominal);
+
+ CREATE TABLE docentes (
+  id_empleado_d int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  usuario_id int(11) NOT NULL,
+  nombres varchar(45) NOT NULL,
+  ci varchar(45) NOT NULL,
+  telefono varchar(45) NOT NULL,
+  f_nacimiento varchar(45) NOT NULL,
+  funcion varchar(45) NOT NULL,
+  cargo_nominal VARCHAR(255) NOT NULL,
+  cod_cargo varchar(45) NOT NULL,
+  cod_dependencia varchar(45) NOT NULL,
+  plantel varchar(255) NOT NULL,
+  horas_trabajadas time DEFAULT NULL,
+  estatus text NOT NULL,
+  f_ingreso varchar(45) NOT NULL,
+  f_ingreso_plantel varchar(45) NOT NULL,
+  anos_sevicio varchar(45) NOT NULL,
+  
+   fyh_creacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
+   fyh_actualizacion DATETIME NULL, 
+   estado VARCHAR(11),
+
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario) on delete no action on update cascade
+   
+) ENGINE=InnoDB;
+
+ALTER TABLE docentes
+ADD CONSTRAINT fk_docentes_cargos
+FOREIGN KEY (cargo_nominal) REFERENCES cargos(cargo_nominal);

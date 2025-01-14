@@ -72,7 +72,6 @@ include ('../../app/controllers/configuraciones/gestion/listado_de_gestiones.php
                                 <select name="turno" id="" class="form-control">
                                     <option value="MAÑANA" <?php if ($turno == 'MAÑANA'){ ?> selected="selected" <?php } ?>>MAÑANA</option>
                                     <option value="TARDE" <?php if ($turno == 'TARDE'){ ?> selected="selected" <?php } ?>>TARDE</option>
-                                    <option value="NOCHE" <?php if ($turno == 'NOCHE'){ ?> selected="selected" <?php } ?>>NOCHE</option>
                                 </select>
                             </div>
                     </div>

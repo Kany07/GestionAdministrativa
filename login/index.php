@@ -23,7 +23,7 @@ include ('../app/config.php');
 <div class="login-box">
     <center>
     <br>
-    <img src="https://img.freepik.com/vector-premium/inicio-sesion-contrasena-cuenta-proteccion-datos-ciberseguridad-registro-online-confidencialidad_501813-2095.jpg?w=740" 
+    <img src="https://img.freepik.com/vector-premium/inicio-sesion-contrasena-cuenta-proteccion-datos-ciberseguridad-registro-online-confidencialidad_501813-2095.jpg?w=740"  
     width="150px" alt=""><br><br>
     </center>
   <div class="login-logo">

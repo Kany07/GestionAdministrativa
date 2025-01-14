@@ -27,8 +27,7 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
           <thead>
             <tr>
               <th style="text-align: center">Nro</th>
-              <th style="text-align: center">Nombres</th>
-              <th style="text-align: center">Rol id</th>
+              <th style="text-align: center">Rol</th>
               <th style="text-align: center">Email</th>
               <th style="text-align: center">Estado</th>
               <th style="text-align: center">Acciones</th>
@@ -42,10 +41,19 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
               $contador_usuarios = $contador_usuarios + 1; ?>
               <tr>
                 <td style="text-align: center"><?=$contador_usuarios;?></td>
-                <td style="text-align: center"><?=$usuario['nombres'];?></td>
                 <td style="text-align: center"><?=$usuario['nombre_rol'];?></td>
                 <td style="text-align: center"><?=$usuario['email'];?></td>
-                <td style="text-align: center"><?=$usuario['estado'];?></td>
+                <td style="text-align: center">
+                <?php
+                  if ($usuario['estado'] == "1") { ?>
+                  <center><button class="btn btn-primary btn-xs" style="border-radius: 20px">ACTIVO</button></center>
+                  <?php
+                  }else { ?>
+                  <center><button class="btn btn-danger btn-xs" style="border-radius: 20px">INACTIVO</button></center>
+                  <?php
+                  }
+                  ?>
+              </td>
                 <td style="text-align: center">
                 <div class="btn-group" role="group" aria-label="Basic example">
                   <a href="show.php?id=<?=$id_usuario;?>" type="button" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i></a>

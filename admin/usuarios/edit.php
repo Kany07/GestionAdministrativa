@@ -14,7 +14,7 @@ include ('../../app/controllers/roles/listado_de_roles.php');
     <div class="content">
       <div class="container">
         <div class="row">
-        <h1>Modificar usuario: <?=$nombres;?></h1>
+        <h1>Modificar usuario: <?=$email;?></h1>
         </div>
         <div class="row">
           <div class = "col-md-12">
@@ -27,13 +27,12 @@ include ('../../app/controllers/roles/listado_de_roles.php');
                <div class="row">
                <div class="col-md-12">
                <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                       <div class="form-group">
-                        <input type="text" name="id_usuario" value="<?=$id_usuario;?>" hidden>
-                        <input type="text" name="logo" value="<?=$logo;?>" hidden>
+                      <input type="text" name="id_usuario" value="<?=$id_usuario;?>" hidden>
                         <label for="">Nombre del rol</label>
                         <div class="form-inline">
-                            <select name="rol_id" id="" class="form-control" style="width: 291px">
+                            <select name="rol_id" id="" class="form-control" style="width: 462px">
                                 <?php 
                         foreach ($roles as $role) { 
                             $nombre_rol_tabla = $role['nombre_rol'];?>
@@ -48,14 +47,7 @@ include ('../../app/controllers/roles/listado_de_roles.php');
                         </div>
                       </div>
                 </div>
-
-                <div class="col-md-4">
-                      <div class="form-group">
-                        <label for="">Nombre del usuario</label>
-                        <input type="text" name="nombres" value="<?=$nombres;?>" class="form-control">
-                      </div>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                       <div class="form-group">
                         <label for="">Correo electrónico</label>
                         <input type="email" name="email" value="<?=$email;?>" class="form-control">

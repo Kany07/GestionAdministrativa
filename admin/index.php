@@ -4,6 +4,8 @@ include ('../admin/layout/parte1.php');
 include ('../app/controllers/roles/listado_de_roles.php');
 include ('../app/controllers/usuarios/listado_de_usuarios.php');
 include ('../app/controllers/niveles/listado_de_niveles.php');
+include ('../app/controllers/asistencias/listado_de_asistencias.php');
+include ('../app/controllers/administrativos/listado_de_administrativos.php');
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -39,7 +41,7 @@ include ('../app/controllers/niveles/listado_de_niveles.php');
         </div>
 
         <div class="col-lg-3 col-6">
-          <div class="small-box bg-primary">
+          <div class="small-box bg-success">
             <div class="inner">
               <?php
               $contador_usuarios = 0;
@@ -60,9 +62,9 @@ include ('../app/controllers/niveles/listado_de_niveles.php');
         </div>
 
         <div class="col-lg-3 col-6">
-          <div class="small-box bg-success">
+          <div class="small-box bg-warning">
             <div class="inner">
-              <?php
+              <?php 
               $contador_niveles = 0;
               foreach ($niveles as $nivele) {
                 $contador_niveles = $contador_niveles + 1;
@@ -72,9 +74,51 @@ include ('../app/controllers/niveles/listado_de_niveles.php');
               <p>Niveles registrados</p>
           </div>
           <div class="icon">
-            <i class="fas"><i class="bi bi-stack"></i></i>
+            <i class="fas"><i class="bi bi-reception-3"></i></i>
           </div>
           <a href="<?=APP_URL;?>/admin/niveles" class="small-box-footer">
+            Más información <i class="fas fa-arrow-circle-right"></i>
+          </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+          <div class="small-box bg-danger">
+            <div class="inner">
+              <?php 
+              $contador_asistencias = 0;
+              foreach ($asistencias as $asistencia) {
+                $contador_asistencias = $contador_asistencias + 1;
+              }
+              ?>
+              <h3><?=$contador_asistencias;?></h3>
+              <p>Asistencias registradas</p>
+          </div>
+          <div class="icon">
+            <i class="fas"><i class="bi bi-person-lines-fill"></i></i>
+          </div>
+          <a href="<?=APP_URL;?>/admin/asistencias" class="small-box-footer">
+            Más información <i class="fas fa-arrow-circle-right"></i>
+          </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+          <div class="small-box bg-light">
+            <div class="inner">
+              <?php
+              $contador_administrativos = 0;
+              foreach ($administrativos as $administrativo) {
+                $contador_administrativos = $contador_administrativos + 1;
+              }
+              ?>
+              <h3><?=$contador_administrativos;?></h3>
+              <p>Administrativos registrados</p>
+          </div>
+          <div class="icon">
+            <i class="fas"><i class="bi bi-person-rolodex"></i></i>
+          </div>
+          <a href="<?=APP_URL;?>/admin/administrativos" class="small-box-footer">
             Más información <i class="fas fa-arrow-circle-right"></i>
           </a>
           </div>

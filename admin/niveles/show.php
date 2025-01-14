@@ -21,7 +21,7 @@ include ('../../app/controllers/niveles/datos_nivel.php');
                 <h3 class="card-title">Datos registrados</h3>
               </div>
               <div class="card-body">
-               <form action="<?= APP_URL;?>/app/controllers/niveles/create.php" method="post">
+               
                <div class="row">
                 <div class="col-md-12">
                     <div class="from-group">
@@ -82,7 +82,6 @@ include ('../../app/controllers/niveles/datos_nivel.php');
                       </div>
                 </div>
               </div>
-               </form>
             </div>
           </div>
          </div>

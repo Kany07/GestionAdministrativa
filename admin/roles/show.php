@@ -11,7 +11,7 @@ include ('../../app/controllers/roles/datos_del_rol.php');
     <div class="content">
       <div class="container">
         <div class="row">
-        <h1>Rol: <?= $nombre_rol;?></h1>
+        <h1>Rol: <?= $nombre_rol;?></h1> 
         </div>
         <div class="row">
           <div class = "col-md-6">

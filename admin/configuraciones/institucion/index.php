@@ -32,7 +32,6 @@ include ('../../../app/controllers/configuraciones/institucion/listado_de_instit
               <th style="text-align: center">Telefono</th>
               <th style="text-align: center">Correo electrónico</th>
               <th style="text-align: center">Fecha de creación</th>
-              <th style="text-align: center">Estado</th>
               <th style="text-align: center">Acciones</th>
             </tr>
           </thead>    
@@ -52,7 +51,6 @@ include ('../../../app/controllers/configuraciones/institucion/listado_de_instit
                 <td><?=$institucione['telefono'];?></td>
                 <td><?=$institucione['correo'];?></td>
                 <td><?=$institucione['fyh_creacion'];?></td>
-                <td><?=$institucione['estado'];?></td>
                 <td style="text-align: center">
                 <div class="btn-group" role="group" aria-label="Basic example">
                   <a href="show.php?id=<?=$id_config_institucion;?>" type="button" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i></a>
