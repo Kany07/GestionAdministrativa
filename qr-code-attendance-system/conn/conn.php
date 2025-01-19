@@ -10,6 +10,8 @@ try {
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
+
+$year_actual= date('Y');
 date_default_timezone_set("America/Caracas");
 $fechaHora = date('Y-m-d H:i:s');
 ?>

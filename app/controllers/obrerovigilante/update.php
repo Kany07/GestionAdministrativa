@@ -1,7 +1,7 @@
 <?php
 include ('../../../app/config.php'); 
 
-$id_administrativos = $_POST['id_administrativos'];
+$id_ov = $_POST['id_ov'];
 $id_usuario = $_POST['id_usuario'];
 $id_persona = $_POST['id_persona'];
 
@@ -25,7 +25,7 @@ $direccion = $_POST['direccion'];
 
     $pdo->beginTransaction();
 
-    // // Verificar si el correo electrónico ya existe
+    // Verificar si el correo electrónico ya existe
     // $query = $pdo->prepare('SELECT COUNT(*) FROM usuarios WHERE email = :email');
     // $query->bindParam(':email', $email);
     // $query->execute();
@@ -94,19 +94,19 @@ $direccion = $_POST['direccion'];
 
 
     // Actualizar a la tabla administrativos
-    $sentencia = $pdo->prepare('UPDATE administrativos
+    $sentencia = $pdo->prepare('UPDATE obrerosvigilantes
     SET     fyh_actualizacion=:fyh_actualizacion
-    WHERE   id_administrativos=:id_administrativos');
+    WHERE   id_ov=:id_ov');
 
     $sentencia->bindParam(':fyh_actualizacion', $fechaHora);
-    $sentencia->bindParam('id_administrativos', $id_administrativos);
+    $sentencia->bindParam('id_ov', $id_ov);
 
     if ($sentencia->execute()) {
         $pdo->commit();
         session_start(); 
         $_SESSION['mensaje'] = "Actualizado"; 
         $_SESSION['icono'] = "success";
-        header('Location: ' . APP_URL . "/admin/administrativos");
+        header('Location: ' . APP_URL . "/admin/obrerovigilante");
     } else {
         $pdo->rollBack();
         session_start(); 

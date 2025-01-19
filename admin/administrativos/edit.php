@@ -70,7 +70,7 @@ include ('../../app/controllers/roles/listado_de_roles.php');
             <div class="col-md-3">
                       <div class="form-group">
                         <label for="">Cédula de identidad</label>
-                        <input type="number" name="ci" value="<?=$ci;?>" class="form-control">
+                        <input type="text" name="ci" value="<?=$ci;?>" class="form-control">
                       </div>
                  </div>
             <div class="col-md-3">

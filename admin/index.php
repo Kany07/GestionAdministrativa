@@ -6,6 +6,8 @@ include ('../app/controllers/usuarios/listado_de_usuarios.php');
 include ('../app/controllers/niveles/listado_de_niveles.php');
 include ('../app/controllers/asistencias/listado_de_asistencias.php');
 include ('../app/controllers/administrativos/listado_de_administrativos.php');
+include ('../app/controllers/docentes/listado_de_docentes.php');
+include ('../app/controllers/obrerovigilante/listado_de_ov.php');
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -123,6 +125,49 @@ include ('../app/controllers/administrativos/listado_de_administrativos.php');
           </a>
           </div>
         </div>
+
+        <div class="col-lg-3 col-6">
+          <div class="small-box bg-dark">
+            <div class="inner">
+              <?php
+              $contador_docentes = 0;
+              foreach ($docentes as $docente) {
+                $contador_docentes = $contador_docentes + 1;
+              }
+              ?>
+              <h3><?=$contador_docentes;?></h3>
+              <p>Docentes registrados</p>
+          </div>
+          <div class="icon">
+            <i class="fas"><i class="bi bi-person-video3"></i></i>
+          </div>
+          <a href="<?=APP_URL;?>/admin/docentes" class="small-box-footer">
+            Más información <i class="fas fa-arrow-circle-right"></i>
+          </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+          <div class="small-box bg-primary">
+            <div class="inner">
+              <?php
+              $contador_obrerosvigilantes = 0;
+              foreach ($obrerosvigilantes as $obrerovigilante) {
+                $contador_obrerosvigilantes = $contador_obrerosvigilantes + 1;
+              }
+              ?>
+              <h3><?=$contador_obrerosvigilantes;?></h3>
+              <p>Obreros/Vigilantes registrados</p>
+          </div>
+          <div class="icon">
+            <i class="fas"><i class="bi bi-people-fill"></i></i>
+          </div>
+          <a href="<?=APP_URL;?>/admin/obrerovigilante" class="small-box-footer">
+            Más información <i class="fas fa-arrow-circle-right"></i>
+          </a>
+          </div>
+        </div>
+
 
 
         </div>

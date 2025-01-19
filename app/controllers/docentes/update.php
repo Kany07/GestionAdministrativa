@@ -1,7 +1,7 @@
 <?php
 include ('../../../app/config.php'); 
 
-$id_administrativos = $_POST['id_administrativos'];
+$id_docentes = $_POST['id_docentes'];
 $id_usuario = $_POST['id_usuario'];
 $id_persona = $_POST['id_persona'];
 
@@ -24,16 +24,6 @@ $anos_servicio = $_POST['anos_servicio'];
 $direccion = $_POST['direccion'];
 
     $pdo->beginTransaction();
-
-    // // Verificar si el correo electrónico ya existe
-    // $query = $pdo->prepare('SELECT COUNT(*) FROM usuarios WHERE email = :email');
-    // $query->bindParam(':email', $email);
-    // $query->execute();
-    // $email_count = $query->fetchColumn();
-
-    // if ($email_count > 0) {
-    //     throw new Exception('Este correo electrónico ya está registrado');
-    // }
 
     // Actualizar a la tabla usuarios
     $password = password_hash($ci, PASSWORD_DEFAULT);
@@ -94,19 +84,19 @@ $direccion = $_POST['direccion'];
 
 
     // Actualizar a la tabla administrativos
-    $sentencia = $pdo->prepare('UPDATE administrativos
+    $sentencia = $pdo->prepare('UPDATE docentes
     SET     fyh_actualizacion=:fyh_actualizacion
-    WHERE   id_administrativos=:id_administrativos');
+    WHERE   id_docentes=:id_docentes');
 
     $sentencia->bindParam(':fyh_actualizacion', $fechaHora);
-    $sentencia->bindParam('id_administrativos', $id_administrativos);
+    $sentencia->bindParam('id_docentes', $id_docentes);
 
     if ($sentencia->execute()) {
         $pdo->commit();
         session_start(); 
         $_SESSION['mensaje'] = "Actualizado"; 
         $_SESSION['icono'] = "success";
-        header('Location: ' . APP_URL . "/admin/administrativos");
+        header('Location: ' . APP_URL . "/admin/docentes");
     } else {
         $pdo->rollBack();
         session_start(); 

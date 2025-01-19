@@ -167,7 +167,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="<?= APP_URL;?>/admin/configuraciones" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Configurar</p>
+                  <p style="font-size: 14px">Configurar</p>
                 </a>
               </li>
             </ul>
@@ -185,7 +185,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="<?= APP_URL;?>/admin/niveles" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Listado de niveles</p>
+                  <p style="font-size: 14px">Listado de niveles</p>
                 </a>
               </li>
             </ul>
@@ -203,19 +203,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="<?= APP_URL;?>/admin/secciones/indexA.php" class="nav-link active">
                 <i class="far fa-circle nav-icon"></i>
-                  <p>Sección A</p>
+                  <p style="font-size: 14px">Sección A</p>
                 </a>
               </li>
                 <li class="nav-item">
                 <a href="<?= APP_URL;?>/admin/secciones/indexB.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Sección B</p>
+                  <p style="font-size: 14px">Sección B</p>
                 </a> 
               </li> 
                <li class="nav-item">
                 <a href="<?= APP_URL;?>/admin/secciones/indexC.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Sección C</p>
+                  <p style="font-size: 14px">Sección C</p>
                 </a> 
               </li>  
             </ul>
@@ -233,7 +233,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="<?= APP_URL;?>/admin/roles" class="nav-link active">
                 <i class="far fa-circle nav-icon"></i>
-                  <p>Listado de roles</p>
+                  <p style="font-size: 14px">Listado de roles</p>
                 </a>
               </li>
                <!-- <li class="nav-item">
@@ -257,7 +257,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="<?= APP_URL;?>/admin/usuarios" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Listado de usuarios</p>
+                  <p style="font-size: 14px">Listado de usuarios</p>
                 </a>
               </li>
             </ul>
@@ -275,7 +275,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="<?= APP_URL;?>/admin/asistencias" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Listado de asistencias</p>
+                  <p style="font-size: 14px">Listado de asistencias</p>
                 </a>
               </li>
             </ul>
@@ -293,7 +293,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="<?= APP_URL;?>/admin/administrativos" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Personal administrativo</p>
+                  <p style="font-size: 14px">Personal administrativo</p>
                 </a>
               </li>
             </ul>
@@ -311,7 +311,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="<?= APP_URL;?>/admin/docentes" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Personal docente</p>
+                  <p style="font-size: 14px">Personal docente</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item menu">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas"><i class="bi bi-people-fill"></i></i>
+              <p>
+                Obreros/Vigilantes
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= APP_URL;?>/admin/obrerovigilante" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p style="font-size: 14px">Personal obrero/vigilante</p>
                 </a>
               </li>
             </ul>

@@ -11,40 +11,46 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css"> <!-- Incluir el CSS de DataTables -->
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Incluir SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap'); /* Importar fuente de Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
         * {
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif; /* Aplicar fuente Poppins a todo el documento */
+            font-family: 'Poppins', sans-serif;
         }
+
         body {
-            background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), 
-                        radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
-            background-blend-mode: multiply, multiply; /* Aplicar modo de mezcla al fondo */
-            background-attachment: fixed; /* Fijar el fondo */
-            background-repeat: no-repeat; /* No repetir el fondo */
-            background-size: cover; /* Ajustar el tamaño del fondo */
+            background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+            background-blend-mode: multiply,multiply;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
+
         .main {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 110vh; /* Definir altura de la sección principal */
+            height: 120vh;
         }
+
         .attendance-container {
             height: 90%;
             width: 90%;
-            border-radius: 20px; /* Bordes redondeados */
+            border-radius: 20px;
             padding: 40px;
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+            background-color: rgba(255, 255, 255, 0.8);
         }
+
         .attendance-container > div {
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; /* Sombra de caja */
-            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 10px;
             padding: 30px;
         }
+
         .attendance-container > div:last-child {
             width: 64%;
             margin-left: auto;
@@ -52,36 +58,35 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand ml-4" href="#">Sistema de asistencia con código QR</a> <!-- Nombre del sistema -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="./index.php">Asistencia <span class="sr-only">(current)</span></a> <!-- Enlace a la página de asistencia -->
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="./masterlist.php">Empleados</a> <!-- Enlace a la lista de empleados -->
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item mr-3">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand ml-4" href="#" style="font-size: large">Registro de asistencia con código QR</a> <!-- Nombre del sistema -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" onclick="window.location.href='./index.php'" style="color:white">Asistencia</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" onclick="window.location.href='./masterlist.php'" style="color:white">Empleados</button>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item mr-3">
                 <p class="mb-0">
-                <button type="button" class="btn btn-success btn-xs" onclick="window.location.href='http://localhost/SGA/login'">Volver</button></p> <!-- Botón para volver a la página de inicio de sesión -->
-                </li>
-            </ul>
-        </div>
-    </nav>
-
+                    <button type="button" class="btn btn-success btn-xs" onclick="window.location.href='http://localhost/SGA/login'">Volver</button>
+                </p> <!-- Botón para volver a la página de inicio de sesión -->
+            </li>
+        </ul>
+    </div>
+</nav>
     <div class="main">
         <div class="attendance-container row">
             <div class="qr-container col-4">
                 
                 <div class="scanner-con">
-                    <h5 class="text-center">Escanee su código QR aquí para su asistencia</h5><br>
+                    <h5 class="text-center">Escanee su código QR aquí para registrar su entrada</h5><br>
                     <video id="interactive" class="viewport" width="100%"></video> <!-- Video para escaneo de código QR -->
                 </div>  
 
@@ -89,9 +94,9 @@
                     <form action="./endpoint/add-attendance.php" method="POST">
                         <h4 class="text-center">¡QR DETECTADO!</h4><br>
                         <input type="hidden" id="detected-qr-code" name="qr_code"> <!-- Campo oculto para almacenar el código QR detectado -->
-                        <button type="submit" class="btn btn-success form-control">Confirmar asistencia</button> <!-- Botón para confirmar asistencia -->
+                        <button type="submit" class="btn btn-primary form-control">Confirmar entrada</button> <!--Botón para confirmar asistencia -->
                     </form>
-                </div>
+               </div>
                 <br><br>
                 <div>
                 <?php
@@ -113,9 +118,11 @@
                     <table class="table text-center table-sm table-striped table-bordered table-hover" id="studentTable"> <!-- Tabla de asistencia -->
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col-1" style="text-align: center">ID</th>
-                                <th scope="col" style="text-align: center">Nombre</th>
+                                <th scope="col" style="text-align: center">ID</th>
+                                <th scope="col" style="text-align: center">CI</th>
                                 <th scope="col" style="text-align: center">Entrada</th>
+                                <th scope="col" style="text-align: center">Salida</th>
+                                <th scope="col" style="text-align: center"><big><i class="bi bi-calendar-x"></big></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -126,13 +133,21 @@
                                 $result = $stmt->fetchAll(); // Obtener todos los resultados
                                 foreach ($result as $row) {
                                     $attendanceID = $row["tbl_attendance_id"]; // ID de asistencia
-                                    $studentName = $row["student_name"]; // Nombre del estudiante
+                                    $studentCourse = $row["course_section"]; // Obtener la cédula de identidad del estudiante
                                     $timeIn = $row["time_in"]; // Hora de entrada
+                                    $timeOut = $row["time_out"]; // Hora de salida
                             ?>
                             <tr>
                                 <th scope="row" style="text-align: center"><?= $attendanceID ?></th>
-                                <td style="text-align: center"><?= $studentName ?></td>
+                                <td id="studentCourse-<?= $studentID ?>"><?= $studentCourse ?></td>
                                 <td style="text-align: center"><?= $timeIn ?></td>
+                                <td style="text-align: center"><?= $timeOut ?></td>
+                              <td>  
+                                <form action="./endpoint/add_exit.php" method="POST">
+                                   <input type="hidden" id="attendance_id" name="attendance_id">
+                                   <button type="button" class="btn btn-danger btn-block btn-sm" onclick="registrarSalida(<?= $attendanceID ?>)"><small>Registrar salida</small></i></button>
+                                    </form>
+                                </td>   
                             </tr>
                             <?php
                             }
@@ -141,7 +156,6 @@
                     </table>
                 </div>
             </div>
-        
         </div>
     </div>
 
@@ -155,32 +169,52 @@
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> <!-- Incluir Instascan JS -->
 
     <script>
-    let scanner; // Declarar variable para el escáner
-    function startScanner() {
-        scanner = new Instascan.Scanner({ video: document.getElementById('interactive') }); // Inicializar el escáner con el elemento de video
-        scanner.addListener('scan', function (content) {
-            $("#detected-qr-code").val(content); // Asignar el contenido escaneado al campo oculto de QR detectado
-            console.log(content); // Imprimir el contenido en la consola para depuración
-            scanner.stop(); // Detener el escáner después de detectar el QR
-            document.querySelector(".qr-detected-container").style.display = ''; // Mostrar el contenedor del QR detectado
-            document.querySelector(".scanner-con").style.display = 'none'; // Ocultar el contenedor del escáner
-        });
-        Instascan.Camera.getCameras()
-            .then(function (cameras) {
-                if (cameras.length > 0) {
-                    scanner.start(cameras[0]); // Iniciar el escáner con la primera cámara disponible
-                } else {
-                    console.error('No cameras found.'); // Mostrar un error si no se encuentran cámaras
-                    alert('No cameras found.'); // Mostrar alerta si no se encuentran cámaras
-                }
-            })
-            .catch(function (err) {
-                console.error('Camera access error:', err); // Mostrar un error si hay problemas al acceder a la cámara
-                alert('Camera access error: ' + err); // Mostrar alerta con el error
-            });
-    }
+let scanner;
 
-    document.addEventListener('DOMContentLoaded', startScanner); // Iniciar el escáner cuando el documento se haya cargado completamente
+function startScanner() {
+    scanner = new Instascan.Scanner({ video: document.getElementById('interactive') });
+    scanner.addListener('scan', function (content) {
+        document.getElementById('attendance_id').value = content; 
+        document.getElementById('detected-qr-code').value = content;  // Asegurar la asignación correcta
+        console.log('QR Detectado:', content);
+        scanner.stop();
+        document.querySelector(".qr-detected-container").style.display = '';
+        document.querySelector(".scanner-con").style.display = 'none';
+    });
+    Instascan.Camera.getCameras()
+        .then(function (cameras) {
+            if (cameras.length > 0) {
+                scanner.start(cameras[0]);
+            } else {
+                console.error('No cameras found.');
+                alert('No cameras found.');
+            }
+        })
+        .catch(function (err) {
+            console.error('Camera access error:', err);
+            alert('Camera access error: ' + err);
+        });
+}
+
+document.addEventListener('DOMContentLoaded', startScanner);
+
+function registrarSalida(attendanceId) {
+    // Crear un formulario oculto
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = './endpoint/add_exit.php';
+
+    // Agregar un campo oculto para el ID de asistencia
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'attendance_id';
+    input.value = attendanceId;
+    form.appendChild(input);
+
+    // Agregar el formulario al documento y enviarlo
+    document.body.appendChild(form);
+    form.submit();
+}
 
     $(function () {
         $("#studentTable").DataTable({
@@ -228,4 +262,6 @@
             }]
         }).buttons().container().appendTo('#studentTable_wrapper .col-md-6:eq(0)'); // Agregar los botones al contenedor específico
     });
-</script>
+    </script>
+</body>
+</html>

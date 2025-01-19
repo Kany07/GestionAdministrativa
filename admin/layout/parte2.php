@@ -12,10 +12,10 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline" style="position: relative; right: 60px;">
-      v. 1.0.
+      v. 1.1.
 </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; <?= $year_actual;?> <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; <?= $year_actual;?> <a href="https://adminlte.io">mendozajoskani@gmail.com</a>.</strong> Todos los derechos reservados.
   </footer>
 </div>
 <!-- ./wrapper -->
@@ -42,6 +42,6 @@
 <!-- AdminLTE App -->
 <script src="<?php echo APP_URL;?>/public/dist/js/adminlte.min.js"></script>
 
-<button id="boton-flotante" onclick="window.history.back();" class="btn btn-outline-dark"><i class="bi bi-reply-all-fill"></i></button>
+<button id="boton-flotante" onclick="window.history.back();" class="btn btn-dark"><i class="bi bi-reply-all-fill"></i></button>
 </body>
 </html>

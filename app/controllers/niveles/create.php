@@ -16,7 +16,7 @@ $sentencia->bindParam('fyh_creacion',$fechaHora);
 $sentencia->bindParam('estado',$estado_de_registro);
 
 if ($sentencia->execute()){
-    session_start(); 
+    session_start();  
     $_SESSION['mensaje'] = "Registrado"; 
     $_SESSION['icono'] = "success";
     header('Location: ' .APP_URL."/admin/niveles");

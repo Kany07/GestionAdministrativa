@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" /> <!-- Incluir el CSS de DataTables -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap'); /* Importar fuente desde Google Fonts */
@@ -42,7 +43,7 @@
             height: 90%;
             width: 90%;
             border-radius: 20px; /* Bordes redondeados */
-            padding: 40px;
+            padding: 50px;
             background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
         }
 
@@ -65,30 +66,33 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand ml-4" href="#">Sistema de asistencia con código QR</a> <!-- Nombre del sistema -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span> <!-- Icono de la barra de navegación -->
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="./index.php">Asistencia<span class="sr-only">(current)</span></a> <!-- Enlace a la página de asistencia -->
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="./masterlist.php">Empleados</a> <!-- Enlace a la lista de empleados -->
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item mr-3">
-                    <p class="mb-0">
-                        <button type="button" class="btn btn-success btn-xs" onclick="window.location.href='http://localhost/SGA/login'">Volver</button> <!-- Botón para volver a la página de inicio de sesión -->
-                    </p>
-                </li>
-            </ul>
-        </div>
-    </nav>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand ml-4" href="#" style="font-size: large">Registro de asistencia con código QR</a> <!-- Nombre del sistema -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" onclick="window.location.href='./index.php'" style="color:white">Asistencia</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" onclick="window.location.href='./masterlist.php'" style="color:white">Empleados</button>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item mr-3">
+                <p class="mb-0">
+                    <button type="button" class="btn btn-success btn-xs" onclick="window.location.href='http://localhost/SGA/login'">Volver</button>
+                </p> <!-- Botón para volver a la página de inicio de sesión -->
+            </li>
+        </ul>
+    </div>
+</nav>
 
     <div class="main">
 
@@ -104,9 +108,10 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Nombre</th>
+                                <th scope="col">Nombre y Apellido</th>
                                 <th scope="col">Cédula de identidad</th>
-                                <th scope="col">QR</th>
+                                <th scope="col">Rol</th>
+                                <th scope="col">Código QR</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -121,142 +126,69 @@
                 
                                 foreach ($result as $row) { // Iterar sobre cada resultado
                                     $studentID = $row["tbl_student_id"]; // Obtener el ID del estudiante
-                                    $studentName = $row["student_name"]; // Obtener el nombre del estudiante
+                                    $studentName = $row["student_name"];
+                                    $studentLastName = $row["student_last_name"]; // Obtener el nombre del estudiante // Obtener el apellido del estudiante
                                     $studentCourse = $row["course_section"]; // Obtener la cédula de identidad del estudiante
+                                    $studentRole = $row["rol"]; // Obtener el rol del estudiante
                                     $qrCode = $row["generated_code"]; // Obtener el código QR generado
                                 ?>
 
                                 <tr>
-                                    <th scope="row" id="studentID-<?= $studentID ?>"><?= $studentID ?></th> <!-- Mostrar ID del estudiante -->
-                                    <td id="studentName-<?= $studentID ?>"><?= $studentName ?></td> <!-- Mostrar nombre del estudiante -->
-                                    <td id="studentCourse-<?= $studentID ?>"><?= $studentCourse ?></td> <!-- Mostrar cédula de identidad del estudiante -->
+                                <th scope="row" id="studentID-<?= $studentID ?>"><?= $studentID ?></th>
+                                <td id="studentName-<?= $studentID ?>"><?= $studentName . " " . $studentLastName ?></td>
+                                <td id="studentCourse-<?= $studentID ?>"><?= $studentCourse ?></td>
+                                <td id="studentRole-<?= $studentID ?>"><?= $studentRole ?></td>
+                           
                                     <td>
                                         <div class="action-button">
-                                            <button class="btn btn-sm" style="background-color:rgba(64, 32, 78, 0.9) " data-toggle="modal" data-target="#qrCodeModal<?= $studentID ?>"><i class="bi bi-qr-code-scan" style="color: white"></i></button> <!-- Botón para ver código QR -->
+                                            <button class="btn btn-primary" style="color:rgba(255, 255, 255, 0.84) width=15px" data-toggle="modal" data-target="#qrCodeModal<?= $studentID ?>">GENERAR</button> <!-- Botón para ver código QR -->
 
                                             <!-- QR Modal -->
                                             <div class="modal fade" id="qrCodeModal<?= $studentID ?>" tabindex="-1" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title"><?= $studentName ?>'s QR Code</h5> <!-- Título del modal -->
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span> <!-- Botón para cerrar el modal -->
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body text-center">
-                                                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<?= $qrCode ?>" alt="" width="300"> <!-- Código QR generado -->
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> <!-- Botón para cerrar el modal -->
-                                                        </div>
-                                                    </div>
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Código QR de <?= $studentName ?> <?= $studentLastName ?></h5> <!-- Título del modal -->
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span> <!-- Botón para cerrar el modal -->
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<?= $qrCode ?>" alt="" width="300"> <!-- Código QR generado -->
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> <!-- Botón para cerrar el modal -->
                                                 </div>
                                             </div>
-
-                                            <!-- <button class="btn btn-secondary btn-sm" onclick="updateStudent(<?= $studentID ?>)">&#128393;</button> // Botón para actualizar estudiante 
-                                            <button class="btn btn-danger btn-sm" onclick="deleteStudent(<?= $studentID ?>)">&#10006;</button> Botón para eliminar estudiante -->
                                         </div>
-                                    </td>
-                                </tr>
+                                    </div>
 
-                                <?php
-                                }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                                    <!-- <button class="btn btn-secondary btn-sm" onclick="updateStudent(<?= $studentID ?>)">&#128393;</button> // Botón para actualizar estudiante 
+                                    <button class="btn btn-danger btn-sm" onclick="deleteStudent(<?= $studentID ?>)">&#10006;</button> Botón para eliminar estudiante -->
+                                </div>
+                            </td>
+                        </tr>
+
+                        <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+</div>
 <style>
 .action-button {
-    display: flex;
-    justify-content: space-around; /* Asegurarse de que los botones estén distribuidos uniformemente */
+display: flex;
+justify-content: space-around; /* Asegurarse de que los botones estén distribuidos uniformemente */
 }
 
 .action-button .btn {
-    margin: 0 2px; /* Añadir un pequeño margen entre los botones */
+margin: 0 2px; /* Añadir un pequeño margen entre los botones */
 }
 </style>
-
-    <!-- Add Modal -->
-<div class="modal fade" id="addStudentModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addStudent" aria-hidden="true">
-    <!-- Contenedor del modal para agregar estudiante -->
-    <div class="modal-dialog">
-        <!-- Contenido del modal -->
-        <div class="modal-content">
-            <!-- Encabezado del modal -->
-            <div class="modal-header">
-                <h5 class="modal-title" id="addStudent">Agregar empleado</h5> <!-- Título del modal -->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span> <!-- Botón para cerrar el modal -->
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Formulario para agregar un estudiante -->
-                <form action="./endpoint/add-student.php" method="POST">
-                    <div class="form-group">
-                        <label for="studentName">Nombres:</label> <!-- Etiqueta para el nombre completo del estudiante -->
-                        <input type="text" class="form-control" id="studentName" name="student_name"> <!-- Campo de entrada para el nombre completo -->
-                    </div>
-                    <div class="form-group">
-                        <label for="studentCourse">Cédula de identidad:</label> <!-- Etiqueta para el curso y sección del estudiante -->
-                        <input type="text" class="form-control" id="studentCourse" name="course_section"> <!-- Campo de entrada para el curso y sección -->
-                    </div>
-                    <button type="button" class="btn btn-secondary form-control qr-generator" onclick="generateQrCode()">Generate QR Code</button>
-                    <!-- Botón para generar el código QR -->
-
-                    <div class="qr-con text-center" style="display: none;">
-                        <input type="hidden" class="form-control" id="generatedCode" name="generated_code"> <!-- Campo oculto para almacenar el código generado -->
-                        <p>Take a pic with your qr code.</p> <!-- Mensaje de instrucciones -->
-                        <img class="mb-4" src="" id="qrImg" alt=""> <!-- Imagen del código QR generado -->
-                    </div>
-                    <div class="modal-footer modal-close" style="display: none;">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <!-- Botón para cerrar el modal -->
-                        <button type="submit" class="btn btn-dark">Add List</button> <!-- Botón para enviar el formulario -->
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Update Modal -->
-<div class="modal fade" id="updateStudentModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="updateStudent" aria-hidden="true">
-    <!-- Contenedor del modal para actualizar estudiante -->
-    <div class="modal-dialog">
-        <!-- Contenido del modal -->
-        <div class="modal-content">
-            <!-- Encabezado del modal -->
-            <div class="modal-header">
-                <h5 class="modal-title" id="updateStudent">Update Student</h5> <!-- Título del modal -->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span> <!-- Botón para cerrar el modal -->
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Formulario para actualizar un estudiante -->
-                <form action="./endpoint/update-student.php" method="POST">
-                    <input type="hidden" class="form-control" id="updateStudentId" name="tbl_student_id"> <!-- Campo oculto para el ID del estudiante -->
-                    <div class="form-group">
-                        <label for="updateStudentName">Full Name:</label> <!-- Etiqueta para el nombre completo del estudiante -->
-                        <input type="text" class="form-control" id="updateStudentName" name="student_name"> <!-- Campo de entrada para el nombre completo -->
-                    </div>
-                    <div class="form-group">
-                        <label for="updateStudentCourse">Course and Section:</label> <!-- Etiqueta para el curso y sección del estudiante -->
-                        <input type="text" class="form-control" id="updateStudentCourse" name="course_section"> <!-- Campo de entrada para el curso y sección -->
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <!-- Botón para cerrar el modal -->
-                        <button type="submit" class="btn btn-dark">Add</button> <!-- Botón para enviar el formulario -->
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
+                                           
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> <!-- Incluir jQuery -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> <!-- Incluir Popper.js -->
@@ -366,7 +298,8 @@ if (text === "") { // Verificar si el texto generado está vacío
     document.querySelector('.qr-generator').style.display = 'none'; // Ocultar el botón de generar el código QR
 }
     }
-    </script>
+</script>
+   
 
 </body>
 </html>

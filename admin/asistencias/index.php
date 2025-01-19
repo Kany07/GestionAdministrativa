@@ -14,18 +14,24 @@ include ('../../app/controllers/asistencias/listado_de_asistencias.php');
         <h1>Listado de asistencias</h1>
         </div>
         <div class="row">
-          <div class = "col-md-8">
+          <div class = "col-md-12">
             <div class="card card-outline card-secondary">
               <div class="card-header">
                 <h3 class="card-title">Registro de asistencias</h3>
+                <div class="card-tools">
+                  <a href="create.php" class="btn btn-dark"><i class="bi bi-plus-circle"></i>   Registar una nueva asistencia</a>
+                </div>
               </div>
               <div class="card-body">
           <table id="example1" class = "table table-striped table-bordered table-hover table-sm">
           <thead>
             <tr>
               <th style="text-align: center">Nro</th>
-              <th style="text-align: center">Empleado</th>
+              <th style="text-align: center">Nombre y Apellido</th>
+              <th style="text-align: center">Cédula de identidad</th>
+              <th style="text-align: center">Rol</th>
               <th style="text-align: center">Hora de entrada</th>
+              <th style="text-align: center">Hora de salida</th>
               <th style="text-align: center">Acción</th>
             </tr>
           </thead>
@@ -37,8 +43,11 @@ include ('../../app/controllers/asistencias/listado_de_asistencias.php');
               $contador_asistencias = $contador_asistencias + 1; ?>
               <tr>
                 <td style="text-align: center"><?=$contador_asistencias;?></td>
-                <td style="text-align: center"><?=$asistencia['student_name'];?></td>
+                <td style="text-align: center"><?=$asistencia['student_name'];?> <?=$asistencia['student_last_name'];?></td>
+                <td style="text-align: center"><?=$asistencia['course_section'];?></td>
+                <td style="text-align: center"><?=$asistencia['rol'];?></td>
                 <td style="text-align: center"><?=$asistencia['time_in'];?></td>
+                <td style="text-align: center"><?=$asistencia['time_out'];?></td>
                 <td style="text-align: center">
                 <div class="btn-group" role="group" aria-label="Basic example">
                   <form action="<?=APP_URL;?>/app/controllers/asistencias/delete.php" onclick="preguntar<?=$tbl_attendance_id;?>(event)" method="post" id="miFormulario<?=$tbl_attendance_id;?>">
@@ -142,12 +151,3 @@ include ('../../layout/mensajes.php');
   });
 </script>
 
-
-
-
-<!-- <button type="button" class="btn btn-secondary form-control qr-generator" onclick="generateQrCode()">Generate QR Code</button>
-<div class="qr-con text-center" style="display: none;">
-<input type="hidden" class="form-control" id="generatedCode" name="generated_code">
-<p>Take a pic with your qr code.</p>
-<img class="mb-4" src="" id="qrImg" alt="">
-</div> -->

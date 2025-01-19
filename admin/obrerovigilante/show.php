@@ -1,10 +1,10 @@
 <?php 
 
-$id_docentes = $_GET['id'];
+$id_ov = $_GET['id'];
 include ('../../app/config.php'); 
 include ('../../admin/layout/parte1.php');
 
-include ('../../app/controllers/docentes/datos_del_docente.php');
+include ('../../app/controllers/obrerovigilante/datos_de_ov.php');
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -13,7 +13,7 @@ include ('../../app/controllers/docentes/datos_del_docente.php');
     <div class="content">
       <div class="container">
         <div class="row">
-        <h1>Docente: <?=$nombres;?> <?=$apellidos;?></h1>
+        <h1>Obrero/Vigilante: <?=$nombres;?> <?=$apellidos;?></h1>
         </div>
         <div class="row">
           <div class = "col-md-12">
@@ -160,7 +160,7 @@ include ('../../app/controllers/docentes/datos_del_docente.php');
               <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                           <a href="<?= APP_URL;?>/admin/docentes" class="btn btn-primary">Volver</a>
+                           <a href="<?= APP_URL;?>/admin/obrerovigilante" class="btn btn-primary">Volver</a>
                       </div>
                 </div>
               </div>

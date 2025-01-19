@@ -31,7 +31,7 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
                             <select name="rol_id" id="" class="form-control" style="width: 198px">
                                 <?php 
                         foreach ($roles as $role) { ?>
-                            <option value="<?=$role['id_rol'];?>" <?=$role['nombre_rol']=="DOCENTE" ? 'selected' : '';?> DISABLED><?=$role['nombre_rol'];?></option>
+                            <option value="<?=$role['id_rol'];?>" <?=$role['nombre_rol']=="DOCENTE" ? 'selected' : '';?> ><?=$role['nombre_rol'];?></option>
                             <?php
                         }
                         ?>
@@ -116,7 +116,7 @@ include ('../../app/controllers/usuarios/listado_de_usuarios.php');
                 <div class="col-md-3">
                       <div class="form-group">
                         <label for="">Horas trabajadas</label>
-                        <input type="number" name="horas_trabajadas" class="form-control">
+                        <input type="text" name="horas_trabajadas" class="form-control">
                       </div>
                 </div>
                 <div class="col-md-3">

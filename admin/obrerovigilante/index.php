@@ -1,7 +1,7 @@
 <?php 
 include ('../../app/config.php');
 include ('../../admin/layout/parte1.php');
-include ('../../app/controllers/docentes/listado_de_docentes.php');
+include ('../../app/controllers/obrerovigilante/listado_de_ov.php');
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -10,15 +10,15 @@ include ('../../app/controllers/docentes/listado_de_docentes.php');
     <div class="content">
       <div class="container">
         <div class="row">
-        <h1>Listado del personal docente</h1>
+        <h1>Personal obrero/vigilante</h1>
         </div>
         <div class="row">
           <div class = "col-md-12">
             <div class="card card-outline card-secondary">
               <div class="card-header">
-                <h3 class="card-title">Docentes registrados</h3>
+                <h3 class="card-title">Obreros/Vigilantes registrados</h3>
                 <div class="card-tools">
-                  <a href="create.php" class="btn btn-dark"><i class="bi bi-plus-circle"></i>   Crear nuevo docente</a>
+                  <a href="create.php" class="btn btn-dark"><i class="bi bi-plus-circle"></i>   Crear nuevo obrero/vigilante</a>
                 </div>
               </div>
               <div class="card-body">
@@ -26,7 +26,7 @@ include ('../../app/controllers/docentes/listado_de_docentes.php');
           <thead>
             <tr>
               <th style="text-align: center">Nro</th>
-              <th style="text-align: center">Nombres del docente</th>
+              <th style="text-align: center">Nombres</th>
               <th style="text-align: center">Rol</th>
               <th style="text-align: center">Cédula de identidad</th>
               <th style="text-align: center">Email</th>
@@ -36,19 +36,19 @@ include ('../../app/controllers/docentes/listado_de_docentes.php');
           </thead>
           <tbody>
             <?php
-            $contador_docentes = 0;
-            foreach ($docentes as $docente) {
-              $id_docentes = $docente['id_docentes'];
-              $contador_docentes = $contador_docentes + 1; ?>
+            $contador_obrerosvigilantes = 0;
+            foreach ($obrerosvigilantes as $obrerovigilante) {
+              $id_ov = $obrerovigilante['id_ov'];
+              $contador_obrerosvigilantes = $contador_obrerosvigilantes + 1; ?>
               <tr>
-                <td style="text-align: center"><?=$contador_docentes;?></td>
-                <td style="text-align: center"><?=$docente['nombres']." ".$docente['apellidos'];?></td>
-                <td style="text-align: center"><?=$docente['nombre_rol'];?></td>
-                <td style="text-align: center"><?=$docente['ci'];?></td>
-                <td style="text-align: center"><?=$docente['email'];?></td>
+                <td style="text-align: center"><?=$contador_obrerosvigilantes;?></td>
+                <td style="text-align: center"><?=$obrerovigilante['nombres']." ".$obrerovigilante['apellidos'];?></td>
+                <td style="text-align: center"><?=$obrerovigilante['nombre_rol'];?></td>
+                <td style="text-align: center"><?=$obrerovigilante['ci'];?></td>
+                <td style="text-align: center"><?=$obrerovigilante['email'];?></td>
                 <td style="text-align: center">
                   <?php
-                  if ($docente['estado'] == "1") { ?>
+                  if ($obrerovigilante['estado'] == "1") { ?>
                   <center><button class="btn btn-primary btn-xs" style="border-radius: 20px">ACTIVO</button></center>
                   <?php
                   }else { ?>
@@ -58,14 +58,14 @@ include ('../../app/controllers/docentes/listado_de_docentes.php');
                   ?></td>
                 <td style="text-align: center">
                 <div class="btn-group" role="group" aria-label="Basic example">
-                  <a href="show.php?id=<?=$id_docentes;?>" type="button" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i></a>
-                  <a href="edit.php?id=<?=$id_docentes;?>" type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square" style ="color: white"></i></a>
-                  <form action="<?=APP_URL;?>/app/controllers/docentes/delete.php" onclick="preguntar<?=$id_docentes;?>(event)" method="post" id="miFormulario<?=$id_docentes;?>">
-                    <input type="text" name="id_docentes" value="<?=$id_docentes;?>" hidden>
+                  <a href="show.php?id=<?=$id_ov;?>" type="button" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i></a>
+                  <a href="edit.php?id=<?=$id_ov;?>" type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square" style ="color: white"></i></a>
+                  <form action="<?=APP_URL;?>/app/controllers/ov/delete.php" onclick="preguntar<?=$id_ov;?>(event)" method="post" id="miFormulario<?=$id_ov;?>">
+                    <input type="text" name="id_ov" value="<?=$id_ov;?>" hidden>
                   <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 3px 3px 0px"><i class="bi bi-trash3"></i></button>
                   </form>
                   <script>
-                    function preguntar<?=$id_docentes;?> (event){
+                    function preguntar<?=$id_ov;?> (event){
                       event.preventDefault();
                       Swal.fire({
                         title: 'Eliminar registro',
@@ -78,7 +78,7 @@ include ('../../app/controllers/docentes/listado_de_docentes.php');
                         denyButtonText: 'Cancelar',
                       }) .then((result) => {
                         if (result.isConfirmed) {
-                          var form = $('#miFormulario<?=$id_docentes;?>');
+                          var form = $('#miFormulario<?=$id_ov;?>');
                           form.submit();
                         }
                       });
@@ -115,12 +115,12 @@ include ('../../layout/mensajes.php');
       "pageLength": 10,
       "language": {
         "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ docentes",
-        "infoEmpty": "Mostrando 0 a 0 de 0 docentes",
-        "infoFiltered": "(Filtrado de _MAX_ total docentes)",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ obreros/vigilantes",
+        "infoEmpty": "Mostrando 0 a 0 de 0 obreros/vigilantes",
+        "infoFiltered": "(Filtrado de _MAX_ total obreros/vigilantes)",
         "infoPostFix": "",
         "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ docentes",
+        "lengthMenu": "Mostrar _MENU_ obreros/vigilantes",
         "loadingRecords": "Cargando...",
         "processing": "Procesando...",
         "search": "Buscar:",
