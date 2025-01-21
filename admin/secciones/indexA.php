@@ -26,12 +26,12 @@ include ('../../app/controllers/secciones/listado_de_secciones_A.php');
           <thead>
             <tr>
               <th style="text-align: center">Nro</th>
-              <th style="text-align: center">Nombres</th>
+              <th style="text-align: center">Gestion Academica</th>
+              <th style="text-align: center">Nombre y Apellido</th>
               <th style="text-align: center">Sección</th>
               <th style="text-align: center">Nivel</th>
+              <th style="text-align: center">Estado</th>
               <th style="text-align: center">Cedula estudiantil</th>
-              <th style="text-align: center">Fecha de nacimiento</th>
-              <th style="text-align: center">Sexo</th>
               <th style="text-align: center">Edad</th>
               <th style="text-align: center">Acciones</th>
             </tr>
@@ -44,12 +44,22 @@ include ('../../app/controllers/secciones/listado_de_secciones_A.php');
               $contador_secciones = $contador_secciones + 1; ?>
               <tr>
                 <td style="text-align: center"><?=$contador_secciones;?></td>
-                <td style="text-align: center"><?=$seccion['nombres'];?></td>
+                <td style="text-align: center"><?=$seccion['gestion'];?></td>
+                <td style="text-align: center"><?=$seccion['nombres']." ".$seccion['apellidos'];?></td>
                 <td style="text-align: center"><?=$seccion['seccion'];?></td>
                 <td style="text-align: center"><?=$seccion['nivel'];?></td>
+                <td>
+                  <?php
+                  if ($seccion['estado'] == "1") { ?>
+                  <center><button class="btn btn-primary btn-xs" style="border-radius: 20px">ACTIVO</button></center>
+                  <?php
+                  }else { ?>
+                  <center><button class="btn btn-danger btn-xs" style="border-radius: 20px">INACTIVO</button></center>
+                  <?php
+                  }
+                  ?>
+                </td>
                 <td style="text-align: center"><?=$seccion['c_estudiantil'];?></td>
-                <td style="text-align: center"><?=$seccion['f_nacimiento'];?></td>
-                <td style="text-align: center"><?=$seccion['sexo'];?></td>
                 <td style="text-align: center"><?=$seccion['edad'];?></td>
 
                 <td style="text-align: center">
