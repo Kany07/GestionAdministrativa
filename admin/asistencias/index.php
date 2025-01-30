@@ -17,7 +17,8 @@ include ('../../app/controllers/asistencias/listado_de_asistencias.php');
           <div class = "col-md-12">
             <div class="card card-outline card-secondary">
               <div class="card-header">
-                <h3 class="card-title">Registro de asistencias</h3>
+                <h3 class="card-title">Registro de asistencias</big></h3><br><br>
+                <a href="<?= APP_URL;?>/admin/asistencias/reportes_asistencia.php" class="btn btn-success"><i class="bi bi-filetype-pdf"></i> Reportes</a> <a href="<?= APP_URL;?>/admin/asistencias/masReportes.php" class="btn btn-outline-light"><i class="bi bi-plus-circle-dotted"></i> Reportes</a>
                 <div class="card-tools">
                   <a href="create.php" class="btn btn-dark"><i class="bi bi-plus-circle"></i>   Registar una nueva asistencia</a>
                 </div>
@@ -43,7 +44,7 @@ include ('../../app/controllers/asistencias/listado_de_asistencias.php');
               $contador_asistencias = $contador_asistencias + 1; ?>
               <tr>
                 <td style="text-align: center"><?=$contador_asistencias;?></td>
-                <td style="text-align: center"><?=$asistencia['student_name'];?> <?=$asistencia['student_last_name'];?></td>
+                <td style="text-align: center"><?=$asistencia['student_name']." ".$asistencia['student_last_name'];?></td>
                 <td style="text-align: center"><?=$asistencia['course_section'];?></td>
                 <td style="text-align: center"><?=$asistencia['rol'];?></td>
                 <td style="text-align: center"><?=$asistencia['time_in'];?></td>

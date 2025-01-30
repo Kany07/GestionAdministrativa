@@ -1,13 +1,15 @@
 <?php
-
-include('../app/config.php');
+/**
+ * Created by PhpStorm.
+ * User: HILARIWEB
+ * Date: 28/12/2023
+ * Time: 19:57
+ */
+include ('../app/config.php');
 
 session_start();
-if (isset($_SESSION['sesion_email'])) {
+
+if(isset($_SESSION['sesion_email'])){
     session_destroy();
-    header('Location: ' . APP_URL . '/login');
-    exit; 
-} else {
-    header('Location: ' . APP_URL . '/login');
-    exit;
-} 
+    header('Location: '.APP_URL.'/login');
+}
